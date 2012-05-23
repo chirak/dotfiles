@@ -16,6 +16,7 @@ set encoding=utf-8
 set hidden
 set history=200
 set hlsearch
+set laststatus=1
 set nrformats=
 set nocompatible
 set number
