@@ -1,0 +1,8 @@
+tmux new-session -s hacking -n editor -d
+tmux send-keys -t hacking 'cd ~/Documents/hacking' C-m
+tmux send-keys -t hacking 'vim' C-m
+tmux split-window -h -p 30 -t hacking
+tmux send-keys -t hacking 'cd ~/Documents/hacking' C-m
+# tmux new-window -n console -t hacking
+# tmux select-window -t hacking:0
+tmux attach -t hacking
