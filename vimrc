@@ -16,6 +16,7 @@ set encoding=utf-8
 set hidden
 set history=200
 set hlsearch
+set laststatus=2
 set nrformats=
 set nocompatible
 set number
@@ -29,6 +30,7 @@ set tabstop=4
 
 imap <C-j> <Esc>
 
+" Set indentation for rb files to 2
 if has("autocmd")
 	filetype on
 	autocmd FileType ruby setlocal ts=2 sts=2 sw=2 et
@@ -40,5 +42,9 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " Yank text to the clipboard
 noremap <leader>y "*y
 noremap <leader>yy "*Y
+
 " Preserve indentation while pasting text from the clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+
+" Map space to toggle fold in normal mode
+nnoremap <space> za
