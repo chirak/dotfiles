@@ -1,3 +1,6 @@
+" ASCII cat greeting :D
+echom '>^.^<'
+
 call pathogen#infect()
 
 filetype plugin on
@@ -7,17 +10,28 @@ syntax on
 let g:solarized_termtrans=1
 colorscheme solarized
 
-let g:Powerline_symbols='fancy'
+" Might be some issues with fancy characters in bottom status bar
+" let g:Powerline_symbols='fancy'
 
-set autoindent
+" Fixes backspace issues in terminal
 set backspace=indent,eol,start
+" Can toggle bg between 'dark' and 'light' for solarized theme
 set background=dark
+" UTF-8 characters for vim powerline plugin
 set encoding=utf-8
+" Allows editing of multiple unsaved buffers
 set hidden
+" Saves the last 200 ex. mode commands
 set history=200
 set hlsearch
+" Shows vim powerline status bar below. Setting 
+" laststatus=1 only shows status bar if window is split
 set laststatus=2
+" Shows all numbers in vim as decimals
 set nrformats=
+
+" Basic settings
+set autoindent
 set nocompatible
 set number
 set ruler
@@ -28,7 +42,15 @@ set showmode
 set smartcase
 set tabstop=4
 
-imap <C-j> <Esc>
+let mapleader=","
+
+" Easy mapping to edit vimrc
+nnoremap <leader>ev :vsp $MYVIMRC<cr>
+nnoremap <leader>sv :so  $MYVIMRC<cr>
+
+" Maps c-j to escap 
+inoremap <C-j> <Esc>
+vnoremap <C-j> <Esc>
 
 " Set indentation for rb files to 2
 if has("autocmd")
@@ -48,3 +70,9 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 " Map space to toggle fold in normal mode
 nnoremap <space> za
+
+" Mapping to uppercase current word in insert mode
+inoremap <c-u> <esc>viwUA
+
+" Example of how to use abbreviations
+iabbrev ssig --<cr>Chirag Khatri<cr>ckhatri4@gmail.com
