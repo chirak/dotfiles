@@ -45,28 +45,21 @@ set tabstop=4
 let mapleader=","
 
 " Easy mapping to edit vimrc
-nnoremap <leader>ev :vsp $MYVIMRC<cr>
-nnoremap <leader>sv :so  $MYVIMRC<cr>
+nnoremap <leader>ev :e  $MYVIMRC<cr>
+nnoremap <leader>sv :so $MYVIMRC<cr>
 
-" Maps c-j to escap 
+" Maps c-j to escape
 inoremap <C-j> <Esc>
 vnoremap <C-j> <Esc>
 
 " Set indentation for rb files to 2
 if has("autocmd")
 	filetype on
-	autocmd FileType ruby setlocal ts=2 sts=2 sw=2 et
+	autocmd FileType ruby,html,erb setlocal ts=2 sts=2 sw=2 et
 endif
 
 " Shortcut for printing the directory of the file which is active
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
-" Yank text to the clipboard
-noremap <leader>y "*y
-noremap <leader>yy "*Y
-
-" Preserve indentation while pasting text from the clipboard
-noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 " Map space to toggle fold in normal mode
 nnoremap <space> za
@@ -75,4 +68,4 @@ nnoremap <space> za
 inoremap <c-u> <esc>viwUA
 
 " Example of how to use abbreviations
-iabbrev ssig --<cr>Chirag Khatri<cr>ckhatri4@gmail.com
+iabbrev ssig <cr>Chirag Khatri<cr>ckhatri4@gmail.com
