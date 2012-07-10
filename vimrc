@@ -43,14 +43,14 @@ set smartcase
 set tabstop=4
 
 let mapleader=","
+let maplocalleader="-"
 
 " Easy mapping to edit vimrc
 nnoremap <leader>ev :e  $MYVIMRC<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
 
 " Maps c-j to escape
-inoremap <C-j> <Esc>
-vnoremap <C-j> <Esc>
+inoremap kj <Esc>
 
 " Set indentation for rb files to 2
 if has("autocmd")
