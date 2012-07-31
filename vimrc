@@ -1,22 +1,18 @@
-" ASCII cat greeting :D
-echom '>^.^<'
-
 call pathogen#infect()
 
 filetype plugin on
 filetype indent on
 syntax on
 
+" Colorscheme settings
 let g:solarized_termtrans=1
 colorscheme solarized
+set t_Co=16
 
-" Might be some issues with fancy characters in bottom status bar
-" let g:Powerline_symbols='fancy'
+set background=dark" Can toggle bg between 'dark' and 'light' for solarized theme
 
 " Fixes backspace issues in terminal
 set backspace=indent,eol,start
-" Can toggle bg between 'dark' and 'light' for solarized theme
-set background=dark
 " UTF-8 characters for vim powerline plugin
 set encoding=utf-8
 " Allows editing of multiple unsaved buffers
@@ -30,6 +26,12 @@ set laststatus=2
 " Shows all numbers in vim as decimals
 set nrformats=
 
+" Remove gui menu and tool bars
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guifont=Monospace\ 9
+
 " Basic settings
 set autoindent
 set nocompatible
@@ -41,6 +43,7 @@ set showmatch
 set showmode
 set smartcase
 set tabstop=4
+set ttyfast " allows quick scrolling
 
 let mapleader=","
 let maplocalleader="-"
@@ -48,6 +51,10 @@ let maplocalleader="-"
 " Easy mapping to edit vimrc
 nnoremap <leader>ev :e  $MYVIMRC<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
+
+" Treats line wrap as a seperate line
+noremap j gj
+noremap k gk
 
 " Maps c-j to escape
 inoremap kj <Esc>
