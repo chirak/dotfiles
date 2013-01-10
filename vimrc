@@ -4,16 +4,16 @@ filetype plugin on
 filetype indent on
 syntax on
 
-" Colorscheme settings
-let g:solarized_termtrans=1
-colorscheme solarized
+" Color settings
 set t_Co=16
 
-set background=dark" Can toggle bg between 'dark' and 'light' for solarized theme
+" Fancy UTF-8 characters for Vim Powerline
+let g:Powerline_symbols='fancy'
+
+set background=dark "Can toggle bg between 'dark' and 'light' for solarized theme
 
 " Fixes backspace issues in terminal
 set backspace=indent,eol,start
-" UTF-8 characters for vim powerline plugin
 set encoding=utf-8
 " Allows editing of multiple unsaved buffers
 set hidden
@@ -25,12 +25,6 @@ set hlsearch
 set laststatus=2
 " Shows all numbers in vim as decimals
 set nrformats=
-
-" Remove gui menu and tool bars
-set guioptions-=m
-set guioptions-=T
-set guioptions-=r
-set guifont=Monospace\ 9
 
 " Basic settings
 set autoindent
@@ -52,14 +46,10 @@ let maplocalleader="-"
 nnoremap <leader>ev :e  $MYVIMRC<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
 
-" Treats line wrap as a seperate line
-noremap j gj
-noremap k gk
-
-" Maps c-j to escape
+" Maps kj to escape
 inoremap kj <Esc>
 
-" Set indentation for rb files to 2
+" Set indentation for certain file types to 2
 if has("autocmd")
 	filetype on
 	autocmd FileType ruby,html,erb setlocal ts=2 sts=2 sw=2 et
@@ -72,7 +62,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nnoremap <space> za
 
 " Mapping to uppercase current word in insert mode
-inoremap <c-u> <esc>viwUA
+inoremap <c-u> <esc>viwUea
 
 " Example of how to use abbreviations
 iabbrev ssig <cr>Chirag Khatri<cr>ckhatri4@gmail.com
