@@ -1,3 +1,4 @@
+# Example script for starting tmux dev environment
 tmux new-session -s hacking -n editor -d
 tmux send-keys -t hacking 'cd ~/Documents/hacking' C-m
 tmux send-keys -t hacking 'vim' C-m
