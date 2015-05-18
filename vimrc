@@ -4,40 +4,48 @@ filetype plugin on
 filetype indent on
 syntax on
 
-" Color settings
-set t_Co=16
+" gVim settings only
+if has("gui_running")
+  colorscheme twilight
+  " Remove gui menu and tool bars
+  set guioptions-=m
+  set guioptions-=T
+  set guioptions-=l
+  set guioptions-=r
+  set guioptions-=b
+  set guioptions-=L
+  if has("gui_win32")
+    set guifont=Consolas:h11:cANSI
 
-" Fancy UTF-8 characters for Vim Powerline
-let g:Powerline_symbols='fancy'
+    " Setup backup directory so temp files to do clutter up working directory
+    set backupdir=~/vimtmp
+    set directory=~/vimtmp
 
-set background=dark "Can toggle bg between 'dark' and 'light' for solarized theme
+    " Disable annoying bell sound in Windows
+    set noerrorbells visualbell t_vb=
+    autocmd GUIEnt3er * set visualbell t_vb=
+  endif
+endif
 
-" Fixes backspace issues in terminal
-set backspace=indent,eol,start
+
+set autoindent
 set encoding=utf-8
-" Allows editing of multiple unsaved buffers
+set expandtab
 set hidden
-" Saves the last 200 ex. mode commands
 set history=200
 set hlsearch
-" Shows vim powerline status bar below. Setting 
-" laststatus=1 only shows status bar if window is split
 set laststatus=2
-" Shows all numbers in vim as decimals
-set nrformats=
-
-" Basic settings
-set autoindent
 set nocompatible
-set number
+set nrformats=
 set ruler
-set shiftwidth=4
+set relativenumber
+set shiftwidth=2
 set showcmd
 set showmatch
 set showmode
 set smartcase
-set tabstop=4
-set ttyfast " allows quick scrolling
+set tabstop=2
+set wildmenu
 
 let mapleader=","
 let maplocalleader="-"
@@ -57,9 +65,6 @@ endif
 
 " Shortcut for printing the directory of the file which is active
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
-" Map space to toggle fold in normal mode
-nnoremap <space> za
 
 " Mapping to uppercase current word in insert mode
 inoremap <c-u> <esc>viwUea
