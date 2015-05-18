@@ -15,6 +15,8 @@ if has("gui_running")
   set guioptions-=b
   set guioptions-=L
   if has("gui_win32")
+    source $VIMRUNTIME/mswin.vim
+    behave mswin
     set guifont=Consolas:h11:cANSI
 
     " Setup backup directory so temp files to do clutter up working directory
@@ -23,7 +25,7 @@ if has("gui_running")
 
     " Disable annoying bell sound in Windows
     set noerrorbells visualbell t_vb=
-    autocmd GUIEnt3er * set visualbell t_vb=
+    autocmd GUIEnter * set visualbell t_vb=
   endif
 endif
 
@@ -52,7 +54,6 @@ let maplocalleader="-"
 
 " Easy mapping to edit vimrc
 nnoremap <leader>ev :e  $MYVIMRC<cr>
-nnoremap <leader>sv :so $MYVIMRC<cr>
 
 " Maps kj to escape
 inoremap kj <Esc>
