@@ -36,6 +36,7 @@ set expandtab
 set hidden
 set history=200
 set hlsearch
+set incsearch
 set laststatus=2
 set nocompatible
 set nrformats=
@@ -57,12 +58,6 @@ nnoremap <leader>ev :e  $MYVIMRC<cr>
 
 " Maps kj to escape
 inoremap kj <Esc>
-
-" Set indentation for certain file types to 2
-if has("autocmd")
-	filetype on
-	autocmd FileType ruby,html,erb setlocal ts=2 sts=2 sw=2 et
-endif
 
 " Shortcut for printing the directory of the file which is active
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
